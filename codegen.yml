@@ -2,9 +2,9 @@ overwrite: true
 schema: "https://graphql.alpha.gateway.br-master.de/graphql"
 documents: "graphql/**/*.graphql"
 generates:
-  __generated__:
+  ./graphql/fragmentMatcherData.tsx:
     plugins:
       - "fragment-matcher"
-  ./graphql.schema.json:
+  ./schema.json:
     plugins:
       - "introspection"
