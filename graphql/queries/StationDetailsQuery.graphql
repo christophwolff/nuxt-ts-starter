@@ -1,0 +1,64 @@
+query StationDetailsQuery($id: ID! = "Bayern_2") {
+  stationDetails: node(id: $id) {
+    ...Station
+    ...StationExtraMetaData
+  }
+}
+fragment Station on AudioBroadcastService {
+  id
+  name
+  brandingColor
+  colors(product: BR_Radio)
+  logoUrl
+  items {
+    ...Element
+  }
+  logoSquareUrl: logoUrl(type: SQUARE)
+  livestreams: sophoraLivestreamDocuments {
+    ...Stream
+  }
+  currentEpg: epg(slots: [CURRENT]) {
+    ...Broadcast
+  }
+}
+fragment Element on AudioElement {
+  start
+  duration
+  title
+  ... on NewsElement {
+    author
+  }
+  ... on MusicElement {
+    performer
+    composer
+  }
+}
+fragment Stream on SophoraDocumentSummary {
+  title
+  url: raw(key: "br-core:streamingUrlIPhone")
+}
+fragment Broadcast on MangoEPGEntry {
+  broadcastEvent {
+    start
+    end
+    items {
+      ...Element
+    }
+    publicationOf {
+      kicker
+      title
+      description
+      image: defaultTeaserImage {
+        url
+      }
+    }
+  }
+}
+fragment StationExtraMetaData on AudioBroadcastService {
+  fallbackTeaserImage {
+    url
+  }
+  todayEpg: epg {
+    ...Broadcast
+  }
+}

@@ -1,37 +1,26 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        br-radio-web
-      </h1>
-      <h2 class="subtitle">
-        BR Radio Web Frontend
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <Station
+        v-for="station in stations"
+        :key="station.id"
+        :station="stations"
+      ></Station>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import Logo from '~/components/Logo.vue'
+import { State } from 'vuex-class'
+import Station from '~/components/Station.vue'
 
 @Component({
-  components: { Logo }
+  components: { Station }
 })
-export default class MyComponent extends Vue {}
+export default class IndexPage extends Vue {
+  @State stations!: Station[]
+}
 </script>
 
 <style>

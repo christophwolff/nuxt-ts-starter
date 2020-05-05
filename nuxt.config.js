@@ -39,7 +39,14 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/ap'],
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://graphql.alpha.gateway.br-master.de/'
+      }
+    }
+  },
   /*
    ** Build configuration
    */

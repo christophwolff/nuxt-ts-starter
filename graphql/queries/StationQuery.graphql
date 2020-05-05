@@ -1,0 +1,5 @@
+query StationQuery($id: ID!) {
+  node(id: $id) {
+    ...Station
+  }
+}
