@@ -1,0 +1,21 @@
+#import "./fragments.graphql"
+query StationQuery($id: ID!) {
+  node(id: $id) {
+    ...Station
+  }
+}
+query StationListQuery {
+  audioBroadcastServices {
+    nodes {
+      id
+      ...Station
+    }
+  }
+}
+
+query StationDetailsQuery($id: ID! = "Bayern_2") {
+  stationDetails: node(id: $id) {
+    ...Station
+    ...StationExtraMetaData
+  }
+}

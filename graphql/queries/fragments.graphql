@@ -1,9 +1,3 @@
-query StationDetailsQuery($id: ID! = "Bayern_2") {
-  stationDetails: node(id: $id) {
-    ...Station
-    ...StationExtraMetaData
-  }
-}
 fragment Station on AudioBroadcastService {
   id
   name
