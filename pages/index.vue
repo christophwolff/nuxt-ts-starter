@@ -1,26 +1,25 @@
 <template>
   <div class="container">
-    <div>
-      <Station
-        v-for="station in stations"
-        :key="station.id"
-        :station="stations"
-      ></Station>
+    <div v-for="station in audioBroadcastServices.nodes" :key="station.id">
+      {{ station.name }}
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import { State } from 'vuex-class'
-import Station from '~/components/Station.vue'
+// import { State } from 'vuex-class'
+// import Station from '~/components/Station.vue'
+import { StationListQuery } from '@/graphql/queries/brradio.graphql'
 
 @Component({
-  components: { Station }
+  apollo: {
+    audioBroadcastServices: {
+      query: StationListQuery
+    }
+  }
 })
-export default class IndexPage extends Vue {
-  @State stations!: Station[]
-}
+export default class IndexPage extends Vue {}
 </script>
 
 <style>
