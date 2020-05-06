@@ -9,9 +9,10 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "build:types": "apollo codegen:generate __generated__ --addTypename --mergeInFieldsFromFragmentSpreads --target typescript --localSchemaFile \"./schema.json\" --includes='./graphql/**/*.graphql'",
-    "schema:download": "apollo schema:download",
+    "schema:download": "apollo schema:download --endpoint=https://graphql.staging.gateway.br-staging.de/graphql schema.json",
     "start": "nuxt start",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "build:types:ts": "graphql-codegen --config codegen.yml"
   },
   "lint-staged": {
     "*.{ts,js ,vue}": "npm run lint"
@@ -22,18 +23,22 @@
     }
   },
   "dependencies": {
-    "@nuxt/types": "^0.7.5",
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "graphql-tag": "^2.10.3",
-    "nuxt": "^2.0.0",
+    "core-js": "^2.6.11",
+    "nuxt": "^2.12.2",
     "nuxt-property-decorator": "^2.7.2"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
+    "@nuxt/types": "^0.7.5",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/tailwindcss": "^1.0.0",
+    "@graphql-codegen/typescript": "1.13.5",
+    "@graphql-codegen/typescript-operations": "1.13.5",
+    "@graphql-codegen/typescript-graphql-files-modules": "1.13.5",
+    "@graphql-codegen/cli": "1.13.5",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.0",
