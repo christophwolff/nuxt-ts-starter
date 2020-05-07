@@ -11,11 +11,11 @@
     "build:types": "apollo codegen:generate __generated__ --addTypename --mergeInFieldsFromFragmentSpreads --target typescript --localSchemaFile \"./schema.json\" --includes='./graphql/**/*.graphql'",
     "schema:download": "apollo schema:download --endpoint=https://graphql.staging.gateway.br-staging.de/graphql schema.json",
     "start": "nuxt start",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "eslint --ext .js,.ts,.vue .",
     "build:types:ts": "graphql-codegen --config codegen.yml"
   },
   "lint-staged": {
-    "*.{ts,js ,vue}": "npm run lint"
+    "*.{ts,js,vue}": "npm run lint"
   },
   "husky": {
     "hooks": {
