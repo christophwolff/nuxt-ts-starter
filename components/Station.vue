@@ -11,7 +11,7 @@ import { Station } from '~/types/index'
 
 @Component({})
 export default class MyComponent extends Vue {
-  @Prop() Station!: Station
+  @Prop() station!: Station
 }
 </script>
 
