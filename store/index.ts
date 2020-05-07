@@ -13,7 +13,5 @@ export const mutations: MutationTree<RootState> = {
 }
 
 export const actions: Actions<RootState, RootState> = {
-  async nuxtServerInit({ commit }, context){
-
-  }
+  async nuxtServerInit() {}
 }
