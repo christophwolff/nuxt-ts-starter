@@ -2,8 +2,8 @@ overwrite: true
 schema: "https://graphql.staging.gateway.br-staging.de/graphql"
 documents: "graphql/**/*.graphql"
 generates:
-  types/graphql.d.ts:
+  types/generated/graphql.d.ts:
     - typescript-graphql-files-modules
-  types/types.ts:
+  types/generated/types.ts:
     - typescript
     - typescript-operations
