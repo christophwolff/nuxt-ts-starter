@@ -26,7 +26,7 @@
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/pwa": "^3.0.0-0",
     "core-js": "^2.6.11",
-    "nuxt": "^2.12.2",
+    "nuxt": "^3.4.3",
     "nuxt-property-decorator": "^2.7.2"
   },
   "devDependencies": {
